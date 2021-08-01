@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="soko_produit_exam_donetModelStoreContainer" CdmEntityContainer="soko_produit_exam_donetEntities">
+    <EntitySetMapping Name="categorie">
+      <EntityTypeMapping TypeName="soko_produit_exam_donetModel.categorie">
+        <MappingFragment StoreEntitySet="categorie">
+          <ScalarProperty Name="idCat" ColumnName="idCat" />
+          <ScalarProperty Name="nomCat" ColumnName="nomCat" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="produit">
+      <EntityTypeMapping TypeName="soko_produit_exam_donetModel.produit">
+        <MappingFragment StoreEntitySet="produit">
+          <ScalarProperty Name="idProduit" ColumnName="idProduit" />
+          <ScalarProperty Name="denominationProduit" ColumnName="denominationProduit" />
+          <ScalarProperty Name="categorieProduit" ColumnName="categorieProduit" />
+          <ScalarProperty Name="quantiteProduit" ColumnName="quantiteProduit" />
+          <ScalarProperty Name="PUProduit" ColumnName="PUProduit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

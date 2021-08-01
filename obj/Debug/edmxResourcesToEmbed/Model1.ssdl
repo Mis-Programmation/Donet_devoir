@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="soko_produit_exam_donetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="categorie">
+    <Key>
+      <PropertyRef Name="idCat" />
+    </Key>
+    <Property Name="idCat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nomCat" Type="varchar" MaxLength="60" Nullable="false" />
+  </EntityType>
+  <EntityType Name="produit">
+    <Key>
+      <PropertyRef Name="idProduit" />
+    </Key>
+    <Property Name="idProduit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="denominationProduit" Type="varchar" MaxLength="60" Nullable="false" />
+    <Property Name="categorieProduit" Type="int" Nullable="false" />
+    <Property Name="quantiteProduit" Type="real" Nullable="false" />
+    <Property Name="PUProduit" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="fk_categorie">
+    <End Role="categorie" Type="Self.categorie" Multiplicity="1" />
+    <End Role="produit" Type="Self.produit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="categorie">
+        <PropertyRef Name="idCat" />
+      </Principal>
+      <Dependent Role="produit">
+        <PropertyRef Name="categorieProduit" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="soko_produit_exam_donetModelStoreContainer">
+    <EntitySet Name="categorie" EntityType="Self.categorie" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="produit" EntityType="Self.produit" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_categorie" Association="Self.fk_categorie">
+      <End Role="categorie" EntitySet="categorie" />
+      <End Role="produit" EntitySet="produit" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
